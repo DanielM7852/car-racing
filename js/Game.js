@@ -45,7 +45,8 @@ class Game {
     form.hide();
 
     Player.getPlayerInfo();
-    
+    player.getcarsAtEnd();
+
     if(allPlayers !== undefined){
       background(rgb(118,195,108));
       image(track,0,-displayHeight*4,displayWidth,displayHeight*5);
@@ -90,6 +91,8 @@ class Game {
     }
 if(player.distance>3860){
   gameState = 2;
+  player.rank = player.rank+1;
+  Player.updateCarsAtEnd(player.rank);
 
 }
 
@@ -97,5 +100,6 @@ if(player.distance>3860){
   }
   end(){
     console.log('GAME OVER');
+    console.log(player.rank);
   }
 }
